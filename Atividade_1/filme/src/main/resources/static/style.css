@@ -1,37 +1,54 @@
+
+/* Full-height blue background section */
+.fundo-azul {
+    background-color: #1e3576;
+    min-height: 100vh;
+}
+
+/* Global typography and background */
 body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background-color: #f2f2f2;
-            color: #333;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: rgb(30, 53, 118); /* fundo azul escuro */
+    padding: 0;
+    height: 100vh;
+    width: auto;
+}
 
-        .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: auto;
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-        }
+.container {
+    max-width: 900px;
+}
 
-        h1 {
-            color: #2c3e50;
-        }
+/* Page title styling */
+h1 {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 
-        .button-group {
-            margin-top: 30px;
-        }
+h2 {
+    color: #010016;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+}
 
-        .button-group a {
-            text-decoration: none;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
+/* Right-align labels when using .col-form-label */
+label.col-form-label {
+    display: flex;
+    justify-content: flex-end;
+}
 
-        .button-group a:hover {
-            background-color: #2980b9;
-        }
+
+.btn.btn-primary {
+    text-decoration: none;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn.btn-primary:hover {
+    background-color: #2980b9;
+}
