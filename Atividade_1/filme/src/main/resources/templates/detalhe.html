@@ -7,31 +7,63 @@
             <title>Casa Cultural</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
                   integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
-            <link th:href="@{/style.css}" rel="stylesheet"/>
-            <meta name="author" content="Graciane Silva"/>
-    </head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+                <link th:href="@{/style.css}" rel="stylesheet"/>
+                <meta name="author" content="Graciane Silva"/>
+                </head>
 
-    <body>
-        <header th:replace="~{navbar.html :: nav}"></header>
+                <body>
+                    <header th:replace="~{navbar.html :: nav}"></header>
 
-        <div class="container my-5 bg-white p-4 rounded shadow">
-            <h2 class="text-center text-primary mb-0 font-weight-bold">Lista de filmes</h2>
-            
-        </div>
-         <!-- Script Bootstrap -->
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-                integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+                    <div class="container my-5 bg-white p-4 rounded shadow">
+                        <h2 class="text-center mb-0">
+                            <span class="text-dark">Detalhes do filme</span>
+                            <strong class="text-primary fs-3" th:text="${filme.titulo}"></strong>
+                        </h2>
+                        <br/>
 
 
+                        <p> <strong class="me-2"> Gênero: </strong> <span th:text="${filme.genero}"></span> </p>
+                        <p> <strong class="me-2"> Ano de lançamento: </strong> <span th:text="${filme.ano}"></span> </p>
+                        <p> <strong class="me-2"> Sinopse: </strong> <span th:text="${filme.sinopse}"></span> </p>
+                        <br/>
 
-    </body>
+                        <p th:text="'Número de avaliações: ' + ${filme.analise.size()}"></p>
 
-</html>
+                        <strong>Comentários:</strong>
+                        <div th:each="analise : ${filme.analise}" class="mb-3 p-3 border rounded">
+                            <p> <span th:text="${analise.textoAnalise}"></span></p>
+
+                            <p><strong>Nota:</strong>
+                                <span th:each="i : ${#numbers.sequence(1, analise.nota)}">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </span>
+                                <span th:each="i : ${#numbers.sequence(1, 5 - analise.nota)}"
+                                      th:if="${analise.nota} < 5">
+                                    <i class="bi bi-star text-secondary"></i>
+                                </span>
+                            </p>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <!-- Script Bootstrap -->
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                    crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                    crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+                            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+                    crossorigin="anonymous"></script>
+
+
+
+                </body>
+
+                </html>

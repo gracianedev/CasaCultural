@@ -1,15 +1,13 @@
 
-/* Full-height blue background section */
 .fundo-azul {
     background-color: #1e3576;
     min-height: 100vh;
 }
 
-/* Global typography and background */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: rgb(30, 53, 118); /* fundo azul escuro */
+    background-color: rgb(30, 53, 118);
     padding: 0;
     height: 100vh;
     width: auto;
@@ -19,7 +17,6 @@ body {
     max-width: 900px;
 }
 
-/* Page title styling */
 h1 {
     color: black;
     font-weight: bold;
@@ -32,7 +29,6 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* Right-align labels when using .col-form-label */
 label.col-form-label {
     display: flex;
     justify-content: flex-end;
@@ -43,6 +39,7 @@ label.col-form-label {
     text-decoration: none;
     background-color: #3498db;
     color: white;
+    font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
     margin-right: 10px;
@@ -52,3 +49,26 @@ label.col-form-label {
 .btn.btn-primary:hover {
     background-color: #2980b9;
 }
+
+
+ .rating-stars input[type="radio"] {
+        display: none;
+    }
+
+    .rating-stars label {
+        font-size: 2rem;
+        color: #ddd;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .rating-stars input[type="radio"]:checked ~ label,
+    .rating-stars label:hover,
+    .rating-stars label:hover ~ label {
+        color: gold;
+    }
+
+    .rating-stars {
+        direction: rtl;
+        display: inline-flex;
+    }

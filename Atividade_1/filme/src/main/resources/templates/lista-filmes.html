@@ -35,8 +35,8 @@
                                             <td th:text="${filme.titulo}"></td> 
                                             <td th:text="${filme.genero}"></td> 
                                             <td th:text="${filme.ano}"></td>
-                            <td <a th:href="@{'/detalhe'} + ${filme.id}">Ver mais... </a>
-                                <a th:href="@{'/analise'} + ${filme.id}"> Avaliar</a>                    
+                            <td class="d-flex gap-3"> <a th:href="@{'/filme/detalhe/'} + ${filme.id}">Ver mais...  </a>
+                                 <a th:href="@{'/filme/analise/'} + ${filme.id}">    Avaliar</a>                    
                             </td>
                                         </tr> 
                                 </tbody> 

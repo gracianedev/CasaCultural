@@ -4,7 +4,9 @@
  */
 package com.casacultural.filme.controller;
 
+import com.casacultural.filme.model.Analise;
 import com.casacultural.filme.model.Filme;
+import com.casacultural.filme.service.AnaliseService;
 import com.casacultural.filme.service.FilmeService;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,21 +17,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author GFS_Mac
  */
 @Controller
+@RequestMapping ("/filme")
+
 public class FilmeController {
     @Autowired
     private FilmeService filmeService;
     
-    
-    @GetMapping ("/index")
-    public String inicio () {
-        return "index";
-    }
+    @Autowired
+    private AnaliseService analiseService;
     
     @GetMapping ("/cadastro")
     public String cadastro (Model model){
@@ -40,7 +42,7 @@ public class FilmeController {
     @PostMapping ("/salvar")
     public String cadastrarFilme (@ModelAttribute Filme filme){
         filmeService.salvar(filme);
-        return "redirect:/lista";
+        return "redirect:/filme/lista";
     }
     
     @GetMapping ("/lista")
@@ -49,15 +51,25 @@ public class FilmeController {
         return "lista-filmes";
     }
     
-    @GetMapping ("/analise")
+//    @GetMapping ("/analise/{id}")
+//    public String avaliar (@PathVariable int id, Model model){
+//        model.addAttribute("filme", filmeService.buscarPorId(id));
+//        return "analise";
+//    }
+    
+    @GetMapping ("/analise/{id}")
     public String avaliar (@PathVariable int id, Model model){
         model.addAttribute("filme", filmeService.buscarPorId(id));
+        model.addAttribute("analise", new Analise());
         return "analise";
     }
     
-    @GetMapping ("/detalhe")
+    @GetMapping ("/detalhe/{id}")
     public String detalhe (@PathVariable int id, Model model){
         model.addAttribute("filme", filmeService.buscarPorId(id));
-        return ("detalhe");
+        model.addAttribute("analise", analiseService.burcarPorId(id));
+        return "detalhe";
     }
+    
+   
 } 

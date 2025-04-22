@@ -17,30 +17,30 @@
      <div class="container my-5 bg-white p-4 rounded shadow">
     <h2 class="text-center text-primary mb-4" style="font-weight: bold">Cadastrar novo filme</h2>
 
-    <form action="/cadastro" method="POST">
+    <form action="/filme/salvar" method="POST">
         <div class="mb-3 row">
-            <label for="titulo" class="col-sm-3 col-form-label">Título</label>
+            <label for="titulo" class="col-sm-3 col-form-label"><strong>Título</strong></label>
             <div class="col-sm-9">
                 <input type="text" class="form-control form-control-lg" id="titulo" name="titulo" required>
             </div>
         </div>
 
         <div class="mb-3 row">
-            <label for="sinopse" class="col-sm-3 col-form-label">Sinopse</label>
+            <label for="sinopse" class="col-sm-3 col-form-label"><strong>Sinopse</strong></label>
             <div class="col-sm-9">
                 <input type="text" class="form-control form-control-lg" id="sinopse" name="sinopse" required>
             </div>
         </div>
 
         <div class="mb-3 row">
-            <label for="genero" class="col-sm-3 col-form-label">Gênero</label>
+            <label for="genero" class="col-sm-3 col-form-label"><strong>Gênero</strong></label>
             <div class="col-sm-9">
                 <input type="text" class="form-control form-control-lg" id="genero" name="genero" required>
             </div>
         </div>
 
         <div class="mb-4 row">
-            <label for="ano" class="col-sm-3 col-form-label">Ano de lançamento</label>
+            <label for="ano" class="col-sm-3 col-form-label"><strong>Ano de lançamento</strong></label>
             <div class="col-sm-9">
                 <input type="number" class="form-control form-control-lg" id="ano" name="ano" required>
             </div>
