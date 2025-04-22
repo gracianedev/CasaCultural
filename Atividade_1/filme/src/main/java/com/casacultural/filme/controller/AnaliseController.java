@@ -21,25 +21,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/analise")
 public class AnaliseController {
-    
+
     @Autowired
     private FilmeService filmeService;
-    
-//    @GetMapping("/analise/{filmeId}")
-//    public String avaliar(@PathVariable int filmeId, Model model){
-//        model.addAttribute("analise", new Analise());
-//        return "analise";
-//    }
-//    @GetMapping ("/analise/{id}")
-//    public String avaliar (@PathVariable int id, Model model){
-//        model.addAttribute("filme", filmeService.buscarPorId(id));
-//        model.addAttribute("analise", new Analise());
-//
-//        return "analise";
-//    }
-    
+
     @PostMapping("/salvar/{filmeId}")
-    public String adicionarAnalise(@PathVariable int filmeId, @ModelAttribute Analise novaAnalise){
+    public String adicionarAnalise(@PathVariable int filmeId, @ModelAttribute Analise novaAnalise) {
         Filme filme = filmeService.buscarPorId(filmeId);
         if (filme != null) {
             filme.adicionarAnalise(novaAnalise);

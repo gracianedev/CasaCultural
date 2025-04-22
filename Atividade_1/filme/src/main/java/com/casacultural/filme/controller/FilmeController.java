@@ -24,52 +24,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author GFS_Mac
  */
 @Controller
-@RequestMapping ("/filme")
+@RequestMapping("/filme")
 
 public class FilmeController {
+
     @Autowired
     private FilmeService filmeService;
-    
+
     @Autowired
     private AnaliseService analiseService;
-    
-    @GetMapping ("/cadastro")
-    public String cadastro (Model model){
+
+    @GetMapping("/cadastro")
+    public String cadastro(Model model) {
         model.addAttribute("filme", new Filme());
         return "cadastro-filme";
     }
-    
-    @PostMapping ("/salvar")
-    public String cadastrarFilme (@ModelAttribute Filme filme){
+
+    @PostMapping("/salvar")
+    public String cadastrarFilme(@ModelAttribute Filme filme) {
         filmeService.salvar(filme);
         return "redirect:/filme/lista";
     }
-    
-    @GetMapping ("/lista")
-    public String lista (Model model) {
+
+    @GetMapping("/lista")
+    public String lista(Model model) {
         model.addAttribute("filmes", filmeService.listarTodos());
         return "lista-filmes";
     }
-    
-//    @GetMapping ("/analise/{id}")
-//    public String avaliar (@PathVariable int id, Model model){
-//        model.addAttribute("filme", filmeService.buscarPorId(id));
-//        return "analise";
-//    }
-    
-    @GetMapping ("/analise/{id}")
-    public String avaliar (@PathVariable int id, Model model){
+
+    @GetMapping("/analise/{id}")
+    public String avaliar(@PathVariable int id, Model model) {
         model.addAttribute("filme", filmeService.buscarPorId(id));
         model.addAttribute("analise", new Analise());
         return "analise";
     }
-    
-    @GetMapping ("/detalhe/{id}")
-    public String detalhe (@PathVariable int id, Model model){
+
+    @GetMapping("/detalhe/{id}")
+    public String detalhe(@PathVariable int id, Model model) {
         model.addAttribute("filme", filmeService.buscarPorId(id));
         model.addAttribute("analise", analiseService.burcarPorId(id));
         return "detalhe";
     }
-    
-   
-} 
+
+}

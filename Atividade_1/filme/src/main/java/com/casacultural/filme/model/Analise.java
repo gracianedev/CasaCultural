@@ -31,7 +31,7 @@ public class Analise {
     private int nota;
 
     @ManyToOne
-    @JoinColumn(name="filme_id")
+    @JoinColumn(name = "filme_id")
     @JsonBackReference
     private Filme filme;
 }

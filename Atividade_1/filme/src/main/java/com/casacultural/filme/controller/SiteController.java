@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
  *
  * @author GFS_Mac
  */
-
 @Controller
 public class SiteController {
-     @GetMapping ("/")
-    public String inicio () {
+
+    @GetMapping("/")
+    public String inicio() {
         return "index";
     }
 }

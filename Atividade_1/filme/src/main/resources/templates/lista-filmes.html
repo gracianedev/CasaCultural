@@ -25,24 +25,20 @@
                                             <th style="width: 20%;">Gênero</th> 
                                             <th style="width: 10%;">Ano</th> 
                                             <th style="width: 20%;">Opções</th> 
-
-
-                                        </tr> 
-                                </thead> 
+                                    </tr> 
+                    </thead> 
                             <tbody> 
                                     <tr th:each="filme : ${filmes}"> 
                                             <td th:text="${filme.id}"></td> 
                                             <td th:text="${filme.titulo}"></td> 
                                             <td th:text="${filme.genero}"></td> 
                                             <td th:text="${filme.ano}"></td>
-                            <td class="d-flex gap-3"> <a th:href="@{'/filme/detalhe/'} + ${filme.id}">Ver mais...  </a>
-                                 <a th:href="@{'/filme/analise/'} + ${filme.id}">    Avaliar</a>                    
-                            </td>
-                                        </tr> 
-                                </tbody> 
-                        </table> 
+                                            <td class="d-flex gap-3"> <a th:href="@{'/filme/detalhe/'} + ${filme.id}">Ver mais...  </a>
+                                                                      <a th:href="@{'/filme/analise/'} + ${filme.id}">Avaliar</a> </td>
+                                    </tr> 
+                            </tbody> 
+                </table> 
             </div>
-
         </div>
 
 

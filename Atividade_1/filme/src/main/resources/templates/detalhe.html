@@ -21,19 +21,14 @@
                             <strong class="text-primary fs-3" th:text="${filme.titulo}"></strong>
                         </h2>
                         <br/>
-
-
                         <p> <strong class="me-2"> Gênero: </strong> <span th:text="${filme.genero}"></span> </p>
                         <p> <strong class="me-2"> Ano de lançamento: </strong> <span th:text="${filme.ano}"></span> </p>
                         <p> <strong class="me-2"> Sinopse: </strong> <span th:text="${filme.sinopse}"></span> </p>
                         <br/>
-
                         <p th:text="'Número de avaliações: ' + ${filme.analise.size()}"></p>
-
                         <strong>Comentários:</strong>
                         <div th:each="analise : ${filme.analise}" class="mb-3 p-3 border rounded">
                             <p> <span th:text="${analise.textoAnalise}"></span></p>
-
                             <p><strong>Nota:</strong>
                                 <span th:each="i : ${#numbers.sequence(1, analise.nota)}">
                                     <i class="bi bi-star-fill text-warning"></i>
@@ -44,10 +39,6 @@
                                 </span>
                             </p>
                         </div>
-
-
-
-
 
                     </div>
                     <!-- Script Bootstrap -->

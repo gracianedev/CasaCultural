@@ -1,4 +1,3 @@
-
 package com.casacultural.filme.model;
 
 import jakarta.persistence.CascadeType;
@@ -18,28 +17,26 @@ import org.springframework.stereotype.Component;
  *
  * @author GFS_Mac
  */
-
-
 @Data
 @Entity
-@Table(name="Filme")
+@Table(name = "Filme")
 @Component
 public class Filme {
-    
-    @Id 
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String titulo;
     private String sinopse;
     private String genero;
     private int ano;
-    
-    @OneToMany (mappedBy= "filme", cascade= CascadeType.ALL, orphanRemoval= true )
+
+    @OneToMany(mappedBy = "filme", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Analise> analise = new ArrayList<>();
-    
-    public void adicionarAnalise (Analise novaAnalise){
+
+    public void adicionarAnalise(Analise novaAnalise) {
         novaAnalise.setFilme(this);
         this.analise.add(novaAnalise);
     }
-    
+
 }

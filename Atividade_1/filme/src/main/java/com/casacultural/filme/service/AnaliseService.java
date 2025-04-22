@@ -16,18 +16,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AnaliseService {
+
     @Autowired
     private AnaliseRepository analiseRepository;
-    
-    public List<Analise> listarPorFilme (int filmeId){
+
+    public List<Analise> listarPorFilme(int filmeId) {
         return analiseRepository.findByFilmeId(filmeId);
     }
-    
-    public Analise salvar (Analise analise){
+
+    public Analise salvar(Analise analise) {
         return analiseRepository.save(analise);
     }
-    
-    public Analise burcarPorId (int id){
+
+    public Analise burcarPorId(int id) {
         return analiseRepository.findById(id).orElse(null);
     }
 }

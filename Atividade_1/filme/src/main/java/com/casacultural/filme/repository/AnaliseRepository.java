@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
  *
  * @author GFS_Mac
  */
-
 @Repository
-public interface AnaliseRepository extends JpaRepository <Analise, Integer>{
-    List<Analise> findByFilmeId (int filmeId);
+public interface AnaliseRepository extends JpaRepository<Analise, Integer> {
+
+    List<Analise> findByFilmeId(int filmeId);
 }

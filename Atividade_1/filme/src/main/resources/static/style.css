@@ -51,24 +51,24 @@ label.col-form-label {
 }
 
 
- .rating-stars input[type="radio"] {
-        display: none;
-    }
+.rating-stars input[type="radio"] {
+    display: none;
+}
 
-    .rating-stars label {
-        font-size: 2rem;
-        color: #ddd;
-        cursor: pointer;
-        transition: color 0.2s;
-    }
+.rating-stars label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
 
-    .rating-stars input[type="radio"]:checked ~ label,
-    .rating-stars label:hover,
-    .rating-stars label:hover ~ label {
-        color: gold;
-    }
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: gold;
+}
 
-    .rating-stars {
-        direction: rtl;
-        display: inline-flex;
-    }
+.rating-stars {
+    direction: rtl;
+    display: inline-flex;
+}

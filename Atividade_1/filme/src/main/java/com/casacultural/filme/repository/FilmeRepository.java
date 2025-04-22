@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author GFS_Mac
  */
 @Repository
-public interface FilmeRepository extends JpaRepository<Filme, Integer>{
-    
+public interface FilmeRepository extends JpaRepository<Filme, Integer> {
+
 }

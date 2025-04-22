@@ -14,26 +14,25 @@ import org.springframework.stereotype.Service;
  *
  * @author GFS_Mac
  */
-
 @Service
 public class FilmeService {
-    
+
     @Autowired
     private FilmeRepository filmeRepository;
-    
-    public Filme salvar (Filme filme){
+
+    public Filme salvar(Filme filme) {
         return filmeRepository.save(filme);
     }
-    
-    public List <Filme> listarTodos () {
-    return filmeRepository.findAll();
-}
-    
-    public Filme buscarPorId (int id) {
+
+    public List<Filme> listarTodos() {
+        return filmeRepository.findAll();
+    }
+
+    public Filme buscarPorId(int id) {
         return filmeRepository.findById(id).orElse(null);
     }
-    
-    public void excluir (int id){
+
+    public void excluir(int id) {
         filmeRepository.deleteById(id);
     }
 }
