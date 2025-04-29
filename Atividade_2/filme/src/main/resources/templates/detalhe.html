@@ -16,31 +16,14 @@
                     <header th:replace="~{navbar.html :: nav}"></header>
 
                     <div class="container my-5 bg-white p-4 rounded shadow">
-                        <h2 class="text-center mb-0">
-                            <span class="text-dark">Detalhes do filme</span>
-                            <strong class="text-primary fs-3" th:text="${filme.titulo}"></strong>
-                        </h2>
-                        <br/>
-                        <p> <strong class="me-2"> Gênero: </strong> <span th:text="${filme.genero}"></span> </p>
-                        <p> <strong class="me-2"> Ano de lançamento: </strong> <span th:text="${filme.ano}"></span> </p>
-                        <p> <strong class="me-2"> Sinopse: </strong> <span th:text="${filme.sinopse}"></span> </p>
-                        <br/>
-                        <p th:text="'Número de avaliações: ' + ${filme.analise.size()}"></p>
-                        <strong>Comentários:</strong>
-                        <div th:each="analise : ${filme.analise}" class="mb-3 p-3 border rounded">
-                            <p> <span th:text="${analise.textoAnalise}"></span></p>
-                            <p><strong>Nota:</strong>
-                                <span th:each="i : ${#numbers.sequence(1, analise.nota)}">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                </span>
-                                <span th:each="i : ${#numbers.sequence(1, 5 - analise.nota)}"
-                                      th:if="${analise.nota} < 5">
-                                    <i class="bi bi-star text-secondary"></i>
-                                </span>
-                            </p>
+                        <div id="filmDetails">
+
+                            </div>
                         </div>
 
-                    </div>
+                    <!-- JQuery -->
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
                     <!-- Script Bootstrap -->
 
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -53,7 +36,8 @@
                             integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
                     crossorigin="anonymous"></script>
 
-
+                    <!-- Javascript -->
+                    <script th:src="@{/js/script.js}"></script>
 
                 </body>
 

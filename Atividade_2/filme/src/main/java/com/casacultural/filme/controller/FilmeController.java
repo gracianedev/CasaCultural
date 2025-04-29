@@ -8,8 +8,6 @@ import com.casacultural.filme.model.Analise;
 import com.casacultural.filme.model.Filme;
 import com.casacultural.filme.service.AnaliseService;
 import com.casacultural.filme.service.FilmeService;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -64,6 +64,11 @@ public class FilmeController {
         model.addAttribute("filme", filmeService.buscarPorId(id));
         model.addAttribute("analise", analiseService.burcarPorId(id));
         return "detalhe";
+    }
+    
+     @PutMapping("/{id}")
+    public Filme atualizarFilme (@PathVariable int id, @RequestBody Filme filmeAtualizado) {
+        return filmeService.salvar(filmeAtualizado);
     }
 
 }
