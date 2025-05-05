@@ -1,0 +1,152 @@
+/* style_claro.css */
+
+body {
+    --cor-fundo-principal: #e0e0e0;
+    --cor-fundo-container: #ffffff;
+    --cor-texto-principal: #1e3576;
+    --cor-h1: #332de0;
+    --cor-h2: #010016;
+    --cor-p: #1e3576;
+    --cor-form: #ffffff;
+    --cor-btn-primaria: #92cff7;
+    --cor-btn-primaria-hover: #bbc2c7;
+    --cor-btn-texto: #10496e;
+    --cor-table-bg: #ffffff;
+    --cor-table-head: #f8f9fa;
+    --cor-star: gold;
+}
+
+/* Estilo global aplicado com base nas variáveis */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+}
+
+.container {
+    max-width: 900px;
+    background-color: var(--cor-fundo-container);
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+h1 {
+    color: var(--cor-h1);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: var(--cor-h2);
+    font-weight: bolder;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--cor-p);
+}
+
+label.col-form-label {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-control {
+    background-color: var(--cor-form);
+    color: black;
+}
+
+.text area.form-control {
+    color: black;
+}
+
+.btn.btn-primary {
+    background-color: var(--cor-btn-primaria);
+    color: var(--cor-btn-texto);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--cor-btn-primaria-hover);
+}
+
+.table-responsive {
+    background-color: var(--cor-table-bg);
+}
+
+.table thead {
+    background-color: var(--cor-table-head);
+}
+
+.rating-stars input[type="radio"] {
+    display: none;
+}
+
+.rating-stars {
+    direction: rtl;
+    display: inline-flex;
+}
+
+.rating-stars label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: var(--cor-star);
+}
+
+.star-filled {
+  color: var(--cor-star) !important;
+}
+
+.btn-opcao {
+     display: inline-flex;
+     align-items: center;
+     margin: 2px;
+     padding: 8px 14px;
+     border: none;
+     border-radius: 6px;
+     font-weight: bold;
+     font-size: 14px;
+     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+     transition: all 0.3s ease;
+     gap: 6px;
+ }
+ 
+ .btn-opcao:hover {
+     transform: scale(1.05);
+     box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+ }
+ 
+ .btn-vermais {
+     background-color: #65c1ff ;
+     color: #333333;
+ }
+ 
+ .btn-avaliar {
+     background-color: #65ff98;
+     color: #333333;
+ }
+ 
+ .btn-editar {
+     background-color: #ffff66;
+     color: #333333;
+ }
+ 
+ .btn-excluir {
+     background-color: #ff6565;
+     color: #333333;
+ }

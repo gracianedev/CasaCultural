@@ -11,6 +11,7 @@ import com.casacultural.filme.service.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,8 +36,9 @@ public class FilmeController {
     private AnaliseService analiseService;
 
     @GetMapping("/cadastro")
-    public String cadastro(Model model) {
+    public String cadastro(@CookieValue(name = "pref-estilo", defaultValue = "style_claro") String tema, Model model) {
         model.addAttribute("filme", new Filme());
+        model.addAttribute("css", tema);
         return "cadastro-filme";
     }
 
@@ -47,22 +49,25 @@ public class FilmeController {
     }
 
     @GetMapping("/lista")
-    public String lista(Model model) {
+    public String lista (@CookieValue(name = "pref-estilo", defaultValue = "style_claro") String tema, Model model) {
         model.addAttribute("filmes", filmeService.listarTodos());
+        model.addAttribute("css", tema);
         return "lista-filmes";
     }
 
     @GetMapping("/analise/{id}")
-    public String avaliar(@PathVariable int id, Model model) {
+    public String avaliar(@CookieValue(name = "pref-estilo", defaultValue = "style_claro") String tema, @PathVariable int id, Model model) {
         model.addAttribute("filme", filmeService.buscarPorId(id));
         model.addAttribute("analise", new Analise());
+        model.addAttribute("css", tema);
         return "analise";
     }
 
     @GetMapping("/detalhe/{id}")
-    public String detalhe(@PathVariable int id, Model model) {
+    public String detalhe(@CookieValue(name = "pref-estilo", defaultValue = "style_claro") String tema, @PathVariable int id, Model model) {
         model.addAttribute("filme", filmeService.buscarPorId(id));
         model.addAttribute("analise", analiseService.burcarPorId(id));
+        model.addAttribute("css", tema);
         return "detalhe";
     }
     

@@ -1,3 +1,4 @@
+// Lista filmes
 function loadFilms() {
     $.getJSON('/api/filme', function (filmes) {
         const $body = $('#tabelaFilmes').empty();
@@ -34,46 +35,46 @@ $(document).ready(function () {
         window.location.href = '/filme/analise/' + id;
     });
 
-    // Função para editar um filme (abre modal)
-$('#tabelaFilmes').on('click', '.btn-editar', function () {
-    const id = $(this).data('id');
+    // Editar (modal)
+    $('#tabelaFilmes').on('click', '.btn-editar', function () {
+        const id = $(this).data('id');
 
-    // Buscar informações do filme para preencher o modal
-    $.getJSON(`/api/filme/${id}`, function (filme) {
-        $('#editTitulo').val(filme.titulo);
-        $('#editGenero').val(filme.genero);
-        $('#editAno').val(filme.ano);
-        $('#editSinopse').val(filme.sinopse);
-        
-        // Abre o modal
-        $('#editModal').modal('show');
+        // Buscar informações do filme para preencher o modal
+        $.getJSON(`/api/filme/${id}`, function (filme) {
+            $('#editTitulo').val(filme.titulo);
+            $('#editGenero').val(filme.genero);
+            $('#editAno').val(filme.ano);
+            $('#editSinopse').val(filme.sinopse);
 
-        // Quando clicar em salvar alterações
-        $('#saveEdit').off('click').on('click', function () {
-            const updatedFilme = {
-                id: id,
-                titulo: $('#editTitulo').val(),
-                genero: $('#editGenero').val(),
-                ano: parseInt($('#editAno').val()),
-                sinopse: $('#editSinopse').val()
-            };
+            // Abre o modal
+            $('#editModal').modal('show');
 
-            $.ajax({
-                url: `/api/filme/${id}`,
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify(updatedFilme)
-            }).done(function () {
-                $('#editModal').modal('hide'); // Fecha o modal
-                loadFilms(); // Recarrega a lista de filmes
-            }).fail(function () {
-                alert('Erro ao atualizar filme');
+            // Quando clicar em salvar alterações
+            $('#saveEdit').off('click').on('click', function () {
+                const updatedFilme = {
+                    id: id,
+                    titulo: $('#editTitulo').val(),
+                    genero: $('#editGenero').val(),
+                    ano: parseInt($('#editAno').val()),
+                    sinopse: $('#editSinopse').val()
+                };
+
+                $.ajax({
+                    url: `/api/filme/${id}`,
+                    method: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatedFilme)
+                }).done(function () {
+                    $('#editModal').modal('hide');
+                    loadFilms();
+                }).fail(function () {
+                    alert('Erro ao atualizar filme');
+                });
             });
+        }).fail(function () {
+            alert('Erro ao carregar filme para edição');
         });
-    }).fail(function () {
-        alert('Erro ao carregar filme para edição');
     });
-});
 
 
     // Excluir
@@ -118,7 +119,7 @@ $('#tabelaFilmes').on('click', '.btn-editar', function () {
 
         var pathArray = window.location.pathname.split('/');
         var filmeId = pathArray[pathArray.length - 1];
-        
+
         $('#formAvaliacao').on('submit', function (e) {
             e.preventDefault();
 
@@ -158,13 +159,13 @@ $('#tabelaFilmes').on('click', '.btn-editar', function () {
 
 
 
-  // Página de detalhes
-if ($('#filmDetails').length) {
-  const pathParts = window.location.pathname.split('/');
-  const filmeId = pathParts[pathParts.length - 1];
+    // Página detalhes
+    if ($('#filmDetails').length) {
+        const pathParts = window.location.pathname.split('/');
+        const filmeId = pathParts[pathParts.length - 1];
 
-  $.getJSON(`/api/filme/${filmeId}`, function(filme) {
-    $('#filmDetails').html(`
+        $.getJSON(`/api/filme/${filmeId}`, function (filme) {
+            $('#filmDetails').html(`
       <h2 class="text-center mb-0">
         <span class="text-dark">Detalhes do filme</span>
         <strong class="text-primary fs-3">${filme.titulo}</strong>
@@ -179,14 +180,14 @@ if ($('#filmDetails').length) {
           <div class="mb-3 p-3 border rounded">
             <p>${a.textoAnalise}</p>
             <p><strong>Nota:</strong>
-              ${'<i class="bi bi-star-fill text-warning"></i>'.repeat(a.nota)}
+              ${'<i class="bi bi-star-fill star-filled "></i>'.repeat(a.nota)}
               ${'<i class="bi bi-star text-secondary"></i>'.repeat(5 - a.nota)}
             </p>
           </div>
         `).join('')}
       </div>
     `);
-  }).fail(() => alert('Erro ao carregar detalhes do filme'));
-}
+        }).fail(() => alert('Erro ao carregar detalhes do filme'));
+    }
 
 });

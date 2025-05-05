@@ -1,17 +1,40 @@
-<nav th:fragment="nav" class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark"> 
+<nav th:fragment="nav"
+     th:class="${ 
+     'navbar navbar-expand-lg border-bottom ' + 
+     ( #strings.contains(css, 'style_claro') ? 'bg-light' : 'bg-dark' ) 
+     }"
+     th:attr="data-bs-theme=${ 
+     #strings.contains(css, 'style_claro') ? 'light' : 'dark' 
+     }">
+
     <div class="container-fluid">
         <a class="navbar-brand">
-            <img th:src="@{/images/logo_casacultural.png}" alt="Casa Cultural" class="d-inline-block align-text-top bg-white" style="height: 56px;">
+            <img th:src="@{/images/logo_casacultural.png}"
+                 alt="Casa Cultural"
+                 class="d-inline-block align-text-top bg-white"
+                 style="height: 56px;">
         </a>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/}">Página Inicial</a>
+                <a th:class="${ 
+                   'nav-link ' + 
+                   ( #strings.contains(css, 'style_claro') ? 'text-dark' : 'text-light' ) 
+                   }"
+                   th:href="@{/}">Página Inicial</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/filme/cadastro}">Cadastrar Filme</a>
+                <a th:class="${ 
+                   'nav-link ' + 
+                   ( #strings.contains(css, 'style_claro') ? 'text-dark' : 'text-light' ) 
+                   }"
+                   th:href="@{/filme/cadastro}">Cadastrar Filme</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" th:href="@{/filme/lista}">Lista de Filmes</a>
+                <a th:class="${ 
+                   'nav-link ' + 
+                   ( #strings.contains(css, 'style_claro') ? 'text-dark' : 'text-light' ) 
+                   }"
+                   th:href="@{/filme/lista}">Lista de Filmes</a>
             </li>
         </ul>
     </div>
