@@ -39,7 +39,7 @@ nb-configuration.xml
 Thumbs.db
 
 # --- Segurança ---
-.env
+../.env
 
 # --- Logs e Erros ---
 *.log

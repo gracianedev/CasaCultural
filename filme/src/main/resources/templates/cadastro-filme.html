@@ -17,7 +17,8 @@
         <div class="container my-5 bg p-4 rounded shadow">
             <h2 class="text-center text-primary mb-4" style="font-weight: bold">Cadastrar novo filme</h2>
 
-            <form id="formAddFilm" method="POST">
+            <form id="formAddFilm" method="POST" th:action="@{/filme/salvar}" th:object="${filme}">
+                <input type="hidden" th:field="*{id}" />
                 <div class="mb-3 row">
                     <label for="titulo" class="col-sm-3 col-form-label"><strong>Título</strong></label>
                     <div class="col-sm-9">

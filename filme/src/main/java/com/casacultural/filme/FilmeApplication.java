@@ -1,13 +1,23 @@
 package com.casacultural.filme;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class FilmeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FilmeApplication.class, args);
-	}
+    public static void main(String[] args) {
 
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+
+        // Datasource
+        if (dotenv.get("SPRING_DATASOURCE_URL") != null) {
+            System.setProperty("SPRING_DATASOURCE_URL", dotenv.get("SPRING_DATASOURCE_URL"));
+            System.setProperty("SPRING_DATASOURCE_USERNAME", dotenv.get("SPRING_DATASOURCE_USERNAME"));
+            System.setProperty("SPRING_DATASOURCE_PASSWORD", dotenv.get("SPRING_DATASOURCE_PASSWORD"));
+        }
+
+        SpringApplication.run(FilmeApplication.class, args);
+    }
 }

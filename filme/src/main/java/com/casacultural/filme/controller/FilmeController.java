@@ -70,10 +70,5 @@ public class FilmeController {
         model.addAttribute("css", tema);
         return "detalhe";
     }
-    
-     @PutMapping("/{id}")
-    public Filme atualizarFilme (@PathVariable int id, @RequestBody Filme filmeAtualizado) {
-        return filmeService.salvar(filmeAtualizado);
-    }
 
 }
