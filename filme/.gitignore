@@ -1,0 +1,47 @@
+# --- Build & Dependências ---
+HELP.md
+target/
+build/
+bin/
+out/
+
+# --- IDEs ---
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbproject/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+nbactions.xml
+nb-configuration.xml
+
+### VS Code ###
+.vscode/
+
+### Eclipse / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# --- Sistema Operacional ---
+.DS_Store
+Thumbs.db
+
+# --- Segurança ---
+.env
+
+# --- Logs e Erros ---
+*.log
+hs_err_pid*
+replay_pid*
