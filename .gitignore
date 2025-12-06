@@ -1,6 +1,6 @@
 # --- Build & Dependências ---
 HELP.md
-target/
+filme/target/
 build/
 bin/
 out/
